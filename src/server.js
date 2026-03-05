@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 8080;
 // Middleware
 app.use(cors()); // Allows our future frontend to talk to this API
 app.use(express.json()); // Allows us to parse JSON payloads
-
+app.use(express.static('public')); // This tells Express to serve files from the 'public' folder
 // Health Check Endpoint
 app.get('/api/health', (req, res) => {
     res.status(200).json({
