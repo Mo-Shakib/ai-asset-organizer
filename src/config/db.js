@@ -3,7 +3,10 @@ require('dotenv').config();
 
 const pool = new Pool({
     connectionString: process.env.DATABASE_URL,
-    // In production with SSL, you might need: ssl: { rejectUnauthorized: false }
+    // This tells Node.js to accept the cloud database's SSL certificate
+    ssl: {
+        rejectUnauthorized: false
+    }
 });
 
 pool.on('connect', () => {
